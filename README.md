@@ -1,8 +1,5 @@
-# Sample Flourish template: circle
+# Sample Flourish template: responsive-circle
 
-This sample template demonstrates how settings can be used to change the state
-of a graphic, and how to use D3 transitions to animate a graphic to an updated state.
-
-Use the [Flourish SDK](https://www.npmjs.com/package/@flourish/sdk) to try it out.
-
-The main code file for the template is [`src/index.js`](https://github.com/kiln/example-template-circle/blob/master/src/index.js).
+A template based on [example-template-circle](/kiln/example-template-circle)
+that makes the radius setting optional, as a test of the new optional number
+settings feature.
