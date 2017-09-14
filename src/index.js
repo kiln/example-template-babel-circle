@@ -11,23 +11,18 @@ export var state = {
 	color: "#FF0000"
 };
 
-var circle, w, h;
-
-function getRadius() {
-	if (state.radius == null) return Math.min(w/2, h/2);
-	return state.radius;
-}
+var circle;
 
 // Initialise the graphic
 export function draw() {
 	// Append and style elements based on the current state
-	w = window.innerWidth;
-	h = window.innerHeight;
+	var w = window.innerWidth,
+	    h = window.innerHeight;
 	var svg = select(document.body).append("svg").attr("width", w).attr("height", h);
 	circle = svg.append("circle")
 		.attr("cx", w/2)
 		.attr("cy", h/2)
-		.attr("r", getRadius())
+		.attr("r", state.radius)
 		.attr("fill", state.color)
 		.attr("stroke", "black")
 		.attr("stroke-width", state.stroke);
@@ -45,10 +40,9 @@ window.addEventListener("resize", () => {
 // the settings panel or presentation editor. It updates elements to reflect
 // the current state.
 export function update() {
-	console.log("state.radius", JSON.stringify(state.radius));
-	if (state.radius != null && state.radius <= 0) throw new Error("Radius must be positive");
+	if (state.radius <= 0) throw new Error("Radius must be positive");
 	circle.transition()
-		.attr("r", getRadius())
+		.attr("r", state.radius)
 		.attr("fill", state.color)
 		.attr("stroke-width", state.stroke);
 }

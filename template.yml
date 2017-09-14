@@ -1,5 +1,5 @@
-id: responsive-circle
-name: Responsive circle
+id: babel-circle
+name: Circle
 author: Flourish team
 sdk_version: 2
 
@@ -7,7 +7,6 @@ settings:
   - property: radius
     name: Radius
     type: number
-    optional: true
     description: The radius of the circle
   - property: stroke
     name: Stroke
