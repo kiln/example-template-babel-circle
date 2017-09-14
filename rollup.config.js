@@ -10,7 +10,7 @@ export default {
   sourceMap: true,
   plugins: [
     babel(),
-    nodeResolve({ jsnext: true }),
+    nodeResolve(),
     uglify(),
   ]
 };
