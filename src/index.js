@@ -35,7 +35,7 @@ export function draw() {
 
 // For non-fluid visualisations, e.g. where an SVG is drawn to fill the available space,
 // it may be useful to redraw the visualisation when the window size changes.
-window.addEventListener("resize", function() {
+window.addEventListener("resize", () => {
 	if (!circle) return; // Do nothing if draw() hasn’t been called yet
 	select("svg").remove();
 	draw();
