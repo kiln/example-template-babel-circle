@@ -5,20 +5,21 @@ import "d3-transition";
 
 // Anything the end user can configure in the settings panel must be in
 // this object. The settings in template.yml reference these property names.
-export var state = {
+export let state = {
 	radius: 10,
 	stroke: 1,
 	color: "#FF0000"
 };
 
-var circle;
+let circle;
 
 // Initialise the graphic
-export function draw() {
+export const draw = () => {
 	// Append and style elements based on the current state
-	var w = window.innerWidth,
+	let w = window.innerWidth,
 	    h = window.innerHeight;
-	var svg = select(document.body).append("svg").attr("width", w).attr("height", h);
+
+  let svg = select(document.body).append("svg").attr("width", w).attr("height", h);
 	circle = svg.append("circle")
 		.attr("cx", w/2)
 		.attr("cy", h/2)
@@ -26,7 +27,7 @@ export function draw() {
 		.attr("fill", state.color)
 		.attr("stroke", "black")
 		.attr("stroke-width", state.stroke);
-}
+};
 
 // For non-fluid visualisations, e.g. where an SVG is drawn to fill the available space,
 // it may be useful to redraw the visualisation when the window size changes.
@@ -39,10 +40,10 @@ window.addEventListener("resize", () => {
 // The update function is called when the user changes a state property in
 // the settings panel or presentation editor. It updates elements to reflect
 // the current state.
-export function update() {
+export const update = () => {
 	if (state.radius <= 0) throw new Error("Radius must be positive");
 	circle.transition()
 		.attr("r", state.radius)
 		.attr("fill", state.color)
 		.attr("stroke-width", state.stroke);
-}
+};
