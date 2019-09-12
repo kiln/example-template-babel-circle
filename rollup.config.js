@@ -1,16 +1,23 @@
-var babel = require('rollup-plugin-babel'),
-    nodeResolve = require('rollup-plugin-node-resolve'),
-    uglify = require('rollup-plugin-uglify');
+import babel  from 'rollup-plugin-babel';
+import nodeResolve from 'rollup-plugin-node-resolve';
+import { uglify } from 'rollup-plugin-uglify';
 
 export default {
-  entry: 'src/index.js',
-  format: 'iife',
-  moduleName: 'template',
-  dest: 'template.js',
-  sourceMap: true,
+  input: 'src/index.js',
+  output: {
+    format: 'iife',
+    name: 'template',
+    file: 'template.js',
+    sourceMap: true,
+  },
+
   plugins: [
-    babel(),
     nodeResolve(),
+    babel(),
     uglify(),
-  ]
+  ],
+
+  onwarn: function (warning, warn) {
+    if (warning.code !== 'CIRCULAR_DEPENDENCY') warn(warning);
+  }
 };

@@ -1,7 +1,7 @@
 id: babel-circle
 name: Circle
 author: Flourish team
-sdk_version: 2
+sdk_version: 3
 
 settings:
   - property: radius
