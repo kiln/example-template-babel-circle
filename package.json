@@ -9,7 +9,7 @@
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/preset-env": "^7.6.0",
     "d3-selection": "^1.4.0",
-    "d3-transition": "^1.2.0",
+    "d3-transition": "^3.0.1",
     "rollup": "^1.21.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-node-resolve": "^5.2.0",
